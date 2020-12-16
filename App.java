@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class App {
     static Scanner input = new Scanner(System.in);
     static String name = "";
+    static String capital = "";
 
     public static void main(String[] args) throws InterruptedException {
         StartGame();
@@ -25,24 +26,46 @@ public class App {
         name = input.nextLine();
         System.out.println("Let's start the game, " + name + "!");
         System.out.println("Please enter game difficulty (easy/medium/hard):");
-        
-        
+
     }
-    public static void GetDifficulty(String diff) {
+
+    public static void GetDifficulty(String diff) throws InterruptedException {
         boolean x = true;
-        while(x==true){
-            if(diff.equals("easy")){ // easy level questions
+        while (x == true) {
+            if (diff.equals("easy")) { // easy level questions
+                Thread.sleep(500);
                 System.out.println("Let's begin with simple questions, " + name + ":");
                 x = false;
-            } 
-            else if(diff.equals("medium")){ // medium level questions
+                Easy();
+            } else if (diff.equals("medium")) { // medium level questions
+                Thread.sleep(500);
                 System.out.println("Let's try the medium questions now, " + name + ":");
-                x= false;
-            }
-            else if(diff.equals("hard")){ // hard level questions
+                x = false;
+                Medium();
+            } else if (diff.equals("hard")) { // hard level questions
+                Thread.sleep(500);
                 System.out.println("Let's try the hardest questions, " + name + "!");
                 x = false;
-            } 
-            else System.out.println("Please enter a valid difficulty (easy/medium/hard) :");}
+                Hard();
+            } else
+                System.out.println("Please enter a valid difficulty (easy/medium/hard) :");
+        }
+    }
+
+    public static void Easy() throws InterruptedException {
+        System.out.println("What is the capital of the United States?");
+        Thread.sleep(500);
+        capital = input.nextLine();
+        while(!capital.equals("Washington")){
+            System.out.println("Try again!");
+            capital = input.nextLine();
+        }
+        System.out.println("Correct!");
+    }
+    public static void Medium(){
+
+    }
+    public static void Hard(){
+
     }
 }
