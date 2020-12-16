@@ -4,7 +4,7 @@ public class App {
     static Scanner input = new Scanner(System.in);
     static String name = "";
     static String capital = "";
-
+    static String result = "";
     public static void main(String[] args) throws InterruptedException {
         StartGame();
         String difficulty = input.nextLine();
@@ -49,23 +49,41 @@ public class App {
                 Hard();
             } else
                 System.out.println("Please enter a valid difficulty (easy/medium/hard) :");
+                diff = input.nextLine();
         }
     }
 
     public static void Easy() throws InterruptedException {
-        System.out.println("What is the capital of the United States?");
+        Question("the United States", "Washington");
+        Question("United Kingdom", "London");
+        Question("Canada", "Ottawa");
+        Question("Brazil", "Brasilia");
+        Question("China", "Beijing");
+        System.out.println("You completed the easy questions!");
+    }
+    public static void Medium() throws InterruptedException {
+        Question("Russia", "Moscow");
+        Question("Argentina", "Buenos Aires");
+        Question("Egypt", "Cairo");
+        Question("India", "New Delhi");
+        Question("New Zealand", "Wellington");
+        System.out.println("You completed the easy questions!");
+    }
+    public static void Hard() throws InterruptedException {
+        Question("Azerbaijan", "Baku");
+        Question("Equador", "Quito");
+        Question("Madagaskar", "Antananarivo");
+        Question("Poland", "Wrsaw");
+        Question("Mongolia", "Ulan Bator");
+        System.out.println("You completed the easy questions!");
+    }
+    public static void Question(String country, String answer) throws InterruptedException {
+        System.out.println("What is the capital of " +  country + "?");
         Thread.sleep(500);
         capital = input.nextLine();
-        while(!capital.equals("Washington")){
-            System.out.println("Try again!");
-            capital = input.nextLine();
+        if(!capital.equals(answer)){
+            System.out.println("Incorrect! The answer is " + answer);
         }
-        System.out.println("Correct!");
-    }
-    public static void Medium(){
-
-    }
-    public static void Hard(){
-
+        else System.out.println("Correct!");
     }
 }
