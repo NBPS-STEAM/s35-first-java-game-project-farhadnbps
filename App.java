@@ -9,6 +9,8 @@ public class App {
         StartGame();
         String difficulty = input.nextLine();
         GetDifficulty(difficulty);
+        //add a retry thing
+        //add a score tracker
     }
 
     public static void StartGame() throws InterruptedException {
@@ -67,15 +69,15 @@ public class App {
         Question("Egypt", "Cairo");
         Question("India", "New Delhi");
         Question("New Zealand", "Wellington");
-        System.out.println("You completed the easy questions!");
+        System.out.println("You completed the medium questions!");
     }
     public static void Hard() throws InterruptedException {
         Question("Azerbaijan", "Baku");
         Question("Equador", "Quito");
-        Question("Madagaskar", "Antananarivo");
-        Question("Poland", "Wrsaw");
+        Question("Madagascar", "Antananarivo");
+        Question("Poland", "Warsaw");
         Question("Mongolia", "Ulan Bator");
-        System.out.println("You completed the easy questions!");
+        System.out.println("You completed the hard questions!");
     }
     public static void Question(String country, String answer) throws InterruptedException {
         System.out.println("What is the capital of " +  country + "?");
