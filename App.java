@@ -6,11 +6,16 @@ public class App {
     static String capital = "";
     static String result = "";
     public static void main(String[] args) throws InterruptedException {
+        boolean y = true;
         StartGame();
+        while(y == true){
+        System.out.println("Please enter game difficulty (easy/medium/hard):");
         String difficulty = input.nextLine();
-        GetDifficulty(difficulty);
-        //add a retry thing
-        //add a score tracker
+        GetDifficulty(difficulty.toLowerCase());
+        System.out.println("Do you want to play again? yes/no");
+        String restart = input.nextLine();
+        y = Restart(restart.toLowerCase());
+    }
     }
 
     public static void StartGame() throws InterruptedException {
@@ -27,7 +32,7 @@ public class App {
         System.out.println("What is your name?");
         name = input.nextLine();
         System.out.println("Let's start the game, " + name + "!");
-        System.out.println("Please enter game difficulty (easy/medium/hard):");
+        
 
     }
 
@@ -39,20 +44,24 @@ public class App {
                 System.out.println("Let's begin with simple questions, " + name + ":");
                 x = false;
                 Easy();
+                break;
             } else if (diff.equals("medium")) { // medium level questions
                 Thread.sleep(500);
                 System.out.println("Let's try the medium questions now, " + name + ":");
                 x = false;
                 Medium();
+                break;
             } else if (diff.equals("hard")) { // hard level questions
                 Thread.sleep(500);
                 System.out.println("Let's try the hardest questions, " + name + "!");
                 x = false;
                 Hard();
+                break;
             } else
                 System.out.println("Please enter a valid difficulty (easy/medium/hard) :");
                 diff = input.nextLine();
         }
+        
     }
 
     public static void Easy() throws InterruptedException {
@@ -83,9 +92,14 @@ public class App {
         System.out.println("What is the capital of " +  country + "?");
         Thread.sleep(500);
         capital = input.nextLine();
-        if(!capital.equals(answer)){
+        capital = capital.toLowerCase();
+        if(!capital.equals(answer.toLowerCase())){
             System.out.println("Incorrect! The answer is " + answer);
         }
         else System.out.println("Correct!");
+    }
+    public static Boolean Restart(String restr) throws InterruptedException {
+        if(restr.equals("yes")) return true;
+        else  return false;
     }
 }
