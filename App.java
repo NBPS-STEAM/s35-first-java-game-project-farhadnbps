@@ -5,6 +5,7 @@ public class App {
     static String name = "";
     static String capital = "";
     static String result = "";
+    static int score;
     public static void main(String[] args) throws InterruptedException {
         boolean y = true;
         StartGame();
@@ -65,28 +66,31 @@ public class App {
     }
 
     public static void Easy() throws InterruptedException {
+        score = 0;
         Question("the United States", "Washington");
         Question("United Kingdom", "London");
         Question("Canada", "Ottawa");
         Question("Brazil", "Brasilia");
         Question("China", "Beijing");
-        System.out.println("You completed the easy questions!");
+        System.out.println("You completed the easy questions with a score of " + score + " out of 5!");
     }
     public static void Medium() throws InterruptedException {
+        score = 0;
         Question("Russia", "Moscow");
         Question("Argentina", "Buenos Aires");
         Question("Egypt", "Cairo");
         Question("India", "New Delhi");
         Question("New Zealand", "Wellington");
-        System.out.println("You completed the medium questions!");
+        System.out.println("You completed the medium questions with a score of " + score + " out of 5!");
     }
     public static void Hard() throws InterruptedException {
+        score = 0;
         Question("Azerbaijan", "Baku");
         Question("Equador", "Quito");
         Question("Madagascar", "Antananarivo");
         Question("Poland", "Warsaw");
         Question("Mongolia", "Ulan Bator");
-        System.out.println("You completed the hard questions!");
+        System.out.println("You completed the hard questions with a score of " + score + " out of 5!");
     }
     public static void Question(String country, String answer) throws InterruptedException {
         System.out.println("What is the capital of " +  country + "?");
@@ -96,7 +100,10 @@ public class App {
         if(!capital.equals(answer.toLowerCase())){
             System.out.println("Incorrect! The answer is " + answer);
         }
-        else System.out.println("Correct!");
+        else {
+            System.out.println("Correct!");
+            score++; 
+        }
     }
     public static Boolean Restart(String restr) throws InterruptedException {
         if(restr.equals("yes")) return true;
