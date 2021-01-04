@@ -57,7 +57,7 @@ public class App { // the main class
                 x = false;
                 Hard();
                 break;
-            } else // game mode invalid
+            } else if(!diff.equals("hard") || !diff.equals("medium") || !diff.equals("easy")) // game mode invalid
                 System.out.println("Please enter a valid difficulty (easy/medium/hard) :");
                 diff = input.nextLine();
         }
