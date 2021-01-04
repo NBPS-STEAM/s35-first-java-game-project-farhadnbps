@@ -23,8 +23,9 @@ public class App { // the main class
     public static void StartGame() throws InterruptedException { // loads the game and asks for player's name
         for(int i = 0; i<=100; i++){
         System.out.println("Loading..."+ i+ "% complete");
-        clearScreen();
+        
         Thread.sleep(100); // this is used to make the loading a bit longer
+        clearScreen();
         }
         System.out.println("Loading complete!");
         Thread.sleep(500);
